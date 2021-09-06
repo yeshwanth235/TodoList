@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- google fontfamily = Glory -->
+    <link href="https://fonts.googleapis.com/css2?family=Glory:ital@1&display=swap" rel="stylesheet">
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="todo-container">
+        <h2>To-Do List</h2>
+        <div class="todo">
+            <form action="/" method="POST" class="todo-header">
+                <input type="text" name="content">
+                <button type="submit"><span class="fas fa-plus"></span></button>
+            </form>
+            <ul class="todo-list">
+                <% for(let task of tasks) { %>
+                <li class="todo-list-item"> 
+                    <div class="todo-list-item-name"><p href="/<%=task._id%>"><%= task.content %> </p></div>
+                    <a href="/edit/<%= task._id%>" class="edit">
+                        <span class="fas fa-edit"></span>
+                    </a>
+                    <a href="/remove/<%=task._id%> " class="remove">
+                        <span class="fas fa-times"></span>
+                    </a>
+                </li>
+                <% } %> 
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
